@@ -12,9 +12,9 @@
 #include <png.h>
 
 // road map
-// - create basic mesh (squares whose centers are squares)
-// - be able to read files
-// - create 1 object rendered into mesh
+// - create basic mesh (squares whose centers are squares) -> partially done
+// - be able to read files -> partially done
+// - create 1 object rendered into mesh -> TODO
 
 struct data_vertex {
     float * data;
@@ -202,6 +202,8 @@ int main(int argc, char** argv) {
         }
     }
 
+    // Jason fixes: ./abc -i abc.txt -> ./abc abc.txt
+
     // Sanity checks
     if(!input_file)
     {
@@ -209,7 +211,6 @@ int main(int argc, char** argv) {
         Usage(argv[0]);
     }
 
-    // change to be able to read file here
     FILE* F = fopen(input_file,"r");
     if(!F)
     {
@@ -243,8 +244,6 @@ int main(int argc, char** argv) {
         }
     }
     fclose(F);
-    // state.image_width = 500;
-    // state.image_height = 500;
     state.image_color = new Pixel[state.image_width * state.image_height];
     state.image_depth = new float[state.image_width * state.image_height];
  
